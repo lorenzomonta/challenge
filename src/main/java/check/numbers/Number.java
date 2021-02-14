@@ -7,6 +7,13 @@ public class Number {
     private boolean correct;
     private String annotation;
 
+    public Number (){
+        this.id = "";
+        this.number = "";
+        this.correct = true;
+        this.annotation = "";
+    }
+
     public Number (String number){
         this.id = "";
         this.number = number;

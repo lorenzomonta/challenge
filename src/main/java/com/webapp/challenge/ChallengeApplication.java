@@ -24,7 +24,7 @@ public class ChallengeApplication {
         v.validateNumber();
         System.out.println(v.getNumber());*/
 
-            
+
         /* let's print a few numbers read from CSV file */
         /*
         for (Number i : numbers) {

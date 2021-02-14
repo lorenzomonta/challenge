@@ -21,17 +21,7 @@ public class Controller {
         Validator v = new Validator(num);
         v.validateNumber();
         model.addAttribute("annotation", v.getNumber().getAnnotation());
-        System.out.println(v.getNumber());
+        //System.out.println(v.getNumber());
         return "index";
     }
-
-    /*
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String processCheckNumber (Model model){
-        Number num = new Number();
-        model.addAttribute("number", num);
-        System.out.println(num);
-        return "index";
-    }
-    */
 }
