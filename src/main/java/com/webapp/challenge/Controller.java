@@ -52,7 +52,7 @@ public class Controller {
         }
 
         String path = UPLOADDIRECTORY + "/" + fileNames;
-        System.out.println("Verifica : " + path);
+        //System.out.println("Verifica : " + path);
         CSVReaderInJava csvReader = new CSVReaderInJava();
         List<Number> numbers = csvReader.readBooksFromCSV(path);
         Validator validator = new Validator(numbers);

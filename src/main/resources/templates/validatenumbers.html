@@ -8,9 +8,17 @@
 <div th:if="${msg}">
     <span th:text="${msg}"></span>
 </div>
-<div>
-    <option th:each="p : ${listNumbers}" th:value="${p}" th:text="${p}"></option>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            Colonna 1:
+            <option th:each="p:${listNumbers}" th:text="${p.getNumber()}"></option>
+        </div>
+        <div class="col">
+            Colonna 2:
+            <option th:each="p:${listNumbers}" th:text="${p.getAnnotation()}"></option>
+        </div>
+    </div>
 </div>
-
 </body>
 </html>
