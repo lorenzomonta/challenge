@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Uplaod Status</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upload file</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 </head>
 <body>
-<div th:if="${msg}">
-    <span th:text="${msg}"></span>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            Colonna 1:
-            <option th:each="p:${listNumbers}" th:text="${p.getNumber()}"></option>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <form method="post" action="/">
+        <div class="text-center">
+            <div th:if="${msg}">
+                <p><h5><span th:text="${msg}"></span></h5>
+            </div>
+            <br><br><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h5 th:each="p:${listNumbers}" th:text="${p.getNumber()}"></h5>
+                    </div>
+                    <div class="col-sm">
+                        <h5 th:each="p:${listNumbers}" th:text="${p.getAnnotation()}"></h5>
+                    </div>
+                </div>
+            </div>
+            <br><p><button class="btn btn-lg btn-primary btn-block" type="submit">Back to index</button>
         </div>
-        <div class="col">
-            Colonna 2:
-            <option th:each="p:${listNumbers}" th:text="${p.getAnnotation()}"></option>
-        </div>
-    </div>
-</div>
+    </form>
 </body>
 </html>

@@ -16,7 +16,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-
 @org.springframework.stereotype.Controller
 public class Controller {
 
@@ -34,7 +33,6 @@ public class Controller {
         Validator v = new Validator(num);
         v.validateNumber();
         model.addAttribute("annotation", v.getNumber().getAnnotation());
-        //System.out.println(v.getNumber());
         return "index";
     }
 
@@ -47,25 +45,18 @@ public class Controller {
             try {
                 Files.write(fileNameAndPath, file.getBytes());
             } catch (IOException e) {
+                model.addAttribute("msg", "No file has been selected!");
                 e.printStackTrace();
+                return "validatenumbers";
             }
         }
-
         String path = UPLOADDIRECTORY + "/" + fileNames;
-        //System.out.println("Verifica : " + path);
         CSVReaderInJava csvReader = new CSVReaderInJava();
         List<Number> numbers = csvReader.readBooksFromCSV(path);
         Validator validator = new Validator(numbers);
         validator.validateNumbers();
-        /*
-        for (Number i : numbers) {
-            System.out.println(i);
-            //if (i.isCorrect()) System.out.println(i);
-            //if (!i.isCorrect()) System.out.println(i);
-        }
-        */
         model.addAttribute("msg", "Successfully uploaded files " + fileNames.toString());
-        model.addAttribute("listNumbers", numbers);
+        model.addAttribute("listNumbers", validator.getNumbers());
         return "validatenumbers";
     }
 }
