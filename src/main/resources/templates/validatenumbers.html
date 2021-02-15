@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Uplaod Status</title>
+</head>
+<body>
+<div th:if="${msg}">
+    <span th:text="${msg}"></span>
+</div>
+<div>
+    <option th:each="p : ${listNumbers}" th:value="${p}" th:text="${p}"></option>
+</div>
+
+</body>
+</html>

@@ -14,7 +14,7 @@
     <br>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-    <form method="post" action="/">
+    <form method="post" action="/validatenumber">
         <div class="container w-25">
             <div class="row align-items-start">
                 <label for="formCheckNumber" class="form-label"><h5>Insert South Africa's phone number:</h5></label>
@@ -28,15 +28,17 @@
             <div class="collapse" id="myDiv" style="display: block;">
                 <div class="card card-body" th:text="${annotation}"></div>
             </div>
-
-
             <br>
+        </div>
+    </form>
+    <form action="/validatenumbers" method="post" enctype="multipart/form-data">
+        <div class="container w-25">
             <div class="row align-items-start">
                 <label for="formInputFile" class="form-label"><h5>File input:</h5></label>
-                <input class="form-control form-control-lg" id="formInputFile" name="cvsFile" type="file">
+                <input class="form-control form-control-lg" id="formInputFile" name="files" multiple type="file">
             </div>
             <div class="row align-items-start">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Upload</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" value="Upload Files">Upload</button>
             </div>
         </div>
     </form>
