@@ -41,8 +41,8 @@ public class CSVReaderInJava {
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
+            return null;
         }
-
         return numbers;
     }
 

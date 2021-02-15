@@ -53,6 +53,10 @@ public class Controller {
         String path = UPLOADDIRECTORY + "/" + fileNames;
         CSVReaderInJava csvReader = new CSVReaderInJava();
         List<Number> numbers = csvReader.readBooksFromCSV(path);
+        if (numbers == null){
+            model.addAttribute("msg", "Please upload a .csv file with the correct format, for example: 103343262,27831234567");
+            return "validatenumbers";
+        }
         Validator validator = new Validator(numbers);
         validator.validateNumbers();
         model.addAttribute("msg", "Successfully uploaded files " + fileNames.toString());
