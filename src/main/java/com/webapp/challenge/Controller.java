@@ -23,32 +23,32 @@ public class Controller {
     protected StringBuilder fileNames;
 
     @RequestMapping(value = "/")
-    public String index(){
+    public String index(Model model){
+        Number number = new Number();
+        model.addAttribute("number", number);
         return "index";
     }
 
 
     @RequestMapping(value = "/validatenumber", method = RequestMethod.POST)
     public String processCheckNumber (@ModelAttribute Number num, Model model){
-        Validator v = new Validator(num);
-        v.validateNumber();
-        model.addAttribute("annotation", v.getNumber().getAnnotation());
+        Validator validator = new Validator(num);
+        validator.validateNumber();
+        model.addAttribute("number", validator.getNumber());
         return "index";
     }
 
     @RequestMapping(value = "/validatenumbers")
-    public String upload(Model model, @RequestParam("files") MultipartFile[] files) {
+    public String upload(Model model, @RequestParam("file") MultipartFile file) {
         fileNames = new StringBuilder();
-        for (MultipartFile file : files) {
-            Path fileNameAndPath = Paths.get(UPLOADDIRECTORY, file.getOriginalFilename());
-            fileNames.append(file.getOriginalFilename());
-            try {
-                Files.write(fileNameAndPath, file.getBytes());
-            } catch (IOException e) {
-                model.addAttribute("msg", "No file has been selected!");
-                e.printStackTrace();
-                return "validatenumbers";
-            }
+        Path fileNameAndPath = Paths.get(UPLOADDIRECTORY, file.getOriginalFilename());
+        fileNames.append(file.getOriginalFilename());
+        try {
+            Files.write(fileNameAndPath, file.getBytes());
+        } catch (IOException e) {
+            model.addAttribute("msg", "No file has been selected!");
+            e.printStackTrace();
+            return "validatenumbers";
         }
         String path = UPLOADDIRECTORY + "/" + fileNames;
         CSVReaderInJava csvReader = new CSVReaderInJava();

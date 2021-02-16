@@ -20,7 +20,10 @@
                         <h5 th:each="p:${listNumbers}" th:text="${p.getNumber()}"></h5>
                     </div>
                     <div class="col-sm">
-                        <h5 th:each="p:${listNumbers}" th:text="${p.getAnnotation()}"></h5>
+                        <div th:each="p:${listNumbers}">
+                            <h5 class="text-success" th:if="${p.isCorrect()}" th:text="${p.getAnnotation()}"></h5>
+                            <h5 class="text-danger" th:if="${!p.isCorrect()}" th:text="${p.getAnnotation()}"></h5>
+                        </div>
                     </div>
                 </div>
             </div>

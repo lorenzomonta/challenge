@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="text-center">
-        <p><h1>Interlogica's challenge!</h1>
+        <p><h1>The challenge of South African telephone numbers!</h1>
     </div>
     <br><br><br>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
@@ -16,14 +16,15 @@
         <div class="container w-25">
             <div class="row align-items-start">
                 <label for="formCheckNumber" class="form-label"><h5>Insert South Africa's phone number:</h5></label>
-                <input class="form-control form-control-lg" id="formCheckNumber" name="number" type="text" placeholder="27831234567">
+                <input class="form-control form-control-lg" id="formCheckNumber" name="number" type="text" placeholder="">
             </div>
             <div class="row align-items-start">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Check</button>
             </div>
             <br>
             <div style="display: block;">
-                <p><div th:text="${annotation}"></div>
+                <h5 class="text-success" th:if="${number.isCorrect()}" th:text="${number.getAnnotation()}"></h5>
+                <h5 class="text-danger" th:unless="${number.isCorrect()}" th:text="${number.getAnnotation()}"></h5>
             </div>
             <br>
         </div>
@@ -32,7 +33,7 @@
         <div class="container w-25">
             <div class="row align-items-start">
                 <label for="formInputFile" class="form-label"><h5>File input:</h5></label>
-                <input class="form-control form-control-lg" id="formInputFile" name="files" multiple type="file">
+                <input class="form-control form-control-lg" id="formInputFile" name="file" multiple type="file">
             </div>
             <div class="row align-items-start">
                 <button class="btn btn-lg btn-primary btn-block" type="submit" value="Upload Files">Upload</button>
