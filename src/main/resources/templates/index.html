@@ -16,15 +16,16 @@
         <div class="container w-25">
             <div class="row align-items-start">
                 <label for="formCheckNumber" class="form-label"><h5>Insert South Africa's phone number:</h5></label>
-                <input class="form-control form-control-lg" id="formCheckNumber" name="number" type="text" placeholder="">
+                <input class="form-control form-control-lg" id="formCheckNumber" name="enteredNumber" type="text" placeholder="">
             </div>
             <div class="row align-items-start">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Check</button>
             </div>
             <br>
             <div style="display: block;">
-                <h5 class="text-success" th:if="${number.isCorrect()}" th:text="${number.getAnnotation()}"></h5>
-                <h5 class="text-danger" th:unless="${number.isCorrect()}" th:text="${number.getAnnotation()}"></h5>
+                <h5 class="text-success" th:if="${number.isCorrect() and !number.isModified()}" th:text="${number.getAnnotation()}"></h5>
+                <h5 class="text-success" th:if="${number.isCorrect() and number.isModified()}" th:text="${'The number is correct! Applied correction: ' + number.getNumber()}"></h5>
+                <h5 class="text-danger" th:if="${!number.isCorrect()}" th:text="${number.getAnnotation()}"></h5>
             </div>
             <br>
         </div>

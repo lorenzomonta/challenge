@@ -4,28 +4,36 @@ public class Number {
 
     private String id;
     private String number;
+    private String enteredNumber;
+    private boolean modified;
     private boolean correct;
     private String annotation;
 
     public Number (){
         this.id = "";
         this.number = "";
+        this.enteredNumber = "";
+        this.modified = false;
         this.correct = true;
-        this.annotation = "";
+        this.annotation = "The number is correct!";
     }
 
-    public Number (String number){
+    public Number (String enteredNumber){
         this.id = "";
-        this.number = number;
+        this.number = enteredNumber;
+        this.enteredNumber = enteredNumber;
+        this.modified = false;
         this.correct = true;
-        this.annotation = "";
+        this.annotation = "The number is correct!";
     }
 
-    public Number (String id, String number){
+    public Number (String id, String enteredNumber){
         this.id = id;
-        this.number = number;
+        this.number = enteredNumber;
+        this.enteredNumber = enteredNumber;
+        this.modified = false;
         this.correct = true;
-        this.annotation = "";
+        this.annotation = "The number is correct!";
     }
 
     public String getId() {
@@ -34,6 +42,14 @@ public class Number {
 
     public String getNumber() {
         return number;
+    }
+
+    public String getEnteredNumber() {
+        return enteredNumber;
+    }
+
+    public boolean isModified() {
+        return modified;
     }
 
     public boolean isCorrect() {
@@ -50,6 +66,12 @@ public class Number {
 
     public void setNumber(String number){
         this.number = number;
+    }
+
+    public void setEnteredNumber(String enteredNumber){ this.enteredNumber = enteredNumber; }
+
+    public void setModified(boolean modified) {
+        this.modified = modified;
     }
 
     public void setCorrect(boolean correct) {

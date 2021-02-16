@@ -17,11 +17,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
-                        <h5 th:each="p:${listNumbers}" th:text="${p.getNumber()}"></h5>
+                        <h5 th:each="p:${listNumbers}" th:text="${p.getEnteredNumber()}"></h5>
                     </div>
                     <div class="col-sm">
                         <div th:each="p:${listNumbers}">
-                            <h5 class="text-success" th:if="${p.isCorrect()}" th:text="${p.getAnnotation()}"></h5>
+                            <h5 class="text-success" th:if="${p.isCorrect() and !p.isModified()}" th:text="${p.getAnnotation()}"></h5>
+                            <h5 class="text-success" th:if="${p.isCorrect() and p.isModified()}" th:text="${'The number is correct! Applied correction: ' + p.getNumber()}"></h5>
                             <h5 class="text-danger" th:if="${!p.isCorrect()}" th:text="${p.getAnnotation()}"></h5>
                         </div>
                     </div>

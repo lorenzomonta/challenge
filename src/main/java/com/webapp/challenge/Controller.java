@@ -25,6 +25,7 @@ public class Controller {
     @RequestMapping(value = "/")
     public String index(Model model){
         Number number = new Number();
+        number.setAnnotation("");
         model.addAttribute("number", number);
         return "index";
     }
@@ -59,7 +60,7 @@ public class Controller {
         }
         Validator validator = new Validator(numbers);
         validator.validateNumbers();
-        model.addAttribute("msg", "Successfully uploaded files " + fileNames.toString());
+        model.addAttribute("msg", "Successfully uploaded file " + fileNames.toString());
         model.addAttribute("listNumbers", validator.getNumbers());
         return "validatenumbers";
     }
