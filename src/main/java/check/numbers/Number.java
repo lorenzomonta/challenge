@@ -1,6 +1,6 @@
 package check.numbers;
 
-//this class represents a number and all the data related to it
+// this class represents a number and all the data related to it
 public class Number {
 
     private String id; // for future purpose, corresponds to the database id

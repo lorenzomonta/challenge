@@ -2,7 +2,7 @@ package check.numbers;
 
 import java.util.List;
 
-//this class is used to validate one or more number objects
+// this class is used to validate one or more number objects
 public class Validator {
 
     private Number number; // is used to verify a single number
