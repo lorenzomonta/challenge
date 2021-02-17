@@ -10,16 +10,19 @@ The web application will show if the numbers are correct. In case they are incor
 
 
 ## Technologies used:
-
 * `Spring boot`: Java open-source framework;
 * `Thymeleaf`: Java html 5 template engine;
 * `Java (JDK 15)`: Object-oriented programming language;
 * `Bootstrap 5.0`: Framework for wer applications;
 * `Unit Tests`: IntelliJ Unit Tests.
 
+## Running web application:
+```sh
+mvn install
+java -jar target/mywebserviceapp-0.0.1-SNAPSHOT.jar
+```
 
-Web application -> http://localhost:8080/
-
+Enter this url in your browser -> http://localhost:8080/
 
 > The file .csv must follow the format below:
 ```sh
