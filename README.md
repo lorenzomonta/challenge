@@ -10,10 +10,11 @@ The web application will show if the numbers are correct. In case they are incor
 
 
 ## Technologies used:
-Java open-source framework: Spring boot
-Java html 5 template engine: Thymeleaf
-Object-oriented programming languages: Java (JDK 15)
-Bootstrap 5.0 framework for wer applications
+
+* `Spring boot`: Java open-source framework
+* `Thymeleaf`: Java html 5 template engine
+* `Java (JDK 15)`: Object-oriented programming languages
+* `Bootstrap 5.0`: Framework for wer applications
 
 
 Web application -> http://localhost:8080/
