@@ -11,7 +11,9 @@ import java.io.File;
 public class ChallengeApplication {
 
     public static void main(String[] args) {
-        final boolean mkdir = new File(Controller.UPLOADDIRECTORY).mkdir();
-        SpringApplication.run(ChallengeApplication.class, args);
+        //create a new directory for the .csv file
+        new File(Controller.UPLOADDIRECTORY).mkdir();
+        // start the web application
+         SpringApplication.run(ChallengeApplication.class, args);
     }
 }

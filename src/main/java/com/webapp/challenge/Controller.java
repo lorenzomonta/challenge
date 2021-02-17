@@ -19,28 +19,34 @@ import java.util.List;
 @org.springframework.stereotype.Controller
 public class Controller {
 
+    // directory that will contain the uploded file
     protected static final String UPLOADDIRECTORY = System.getProperty("user.dir") + "/uploads";
     protected StringBuilder fileNames;
 
     @RequestMapping(value = "/")
     public String index(Model model){
         Number number = new Number();
+        //at the first access no annotation is displayed
         number.setAnnotation("");
+        // passing data to htlm page
         model.addAttribute("number", number);
         return "index";
     }
 
-
+    // test a single number
     @RequestMapping(value = "/validatenumber", method = RequestMethod.POST)
     public String processCheckNumber (@ModelAttribute Number num, Model model){
         Validator validator = new Validator(num);
         validator.validateNumber();
+        // passing data to htlm page
         model.addAttribute("number", validator.getNumber());
         return "index";
     }
 
+    // test the numbers in the .csv file
     @RequestMapping(value = "/validatenumbers")
     public String upload(Model model, @RequestParam("file") MultipartFile file) {
+        //managing a file upload
         fileNames = new StringBuilder();
         Path fileNameAndPath = Paths.get(UPLOADDIRECTORY, file.getOriginalFilename());
         fileNames.append(file.getOriginalFilename());
@@ -60,6 +66,7 @@ public class Controller {
         }
         Validator validator = new Validator(numbers);
         validator.validateNumbers();
+        // passing data to htlm page
         model.addAttribute("msg", "Successfully uploaded file " + fileNames.toString());
         model.addAttribute("listNumbers", validator.getNumbers());
         return "validatenumbers";

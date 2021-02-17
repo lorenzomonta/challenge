@@ -2,10 +2,11 @@ package check.numbers;
 
 import java.util.List;
 
+//this class is used to validate one or more number objects
 public class Validator {
 
-    private Number number;
-    private List<Number> numbers;
+    private Number number; // is used to verify a single number
+    private List<Number> numbers; // is used to verify two or more numbers
 
     public Validator(Number number){
         this.number = number;
@@ -27,17 +28,18 @@ public class Validator {
 
     public void auxValidate(Number i){
         String temp = i.getEnteredNumber();
+        // check if the number contains only digits
         if (!temp.matches("[0-9]+")) {
             i.setCorrect(false);
             i.setAnnotation("The number must contain only digits!");
         } else {
+            // check if the number prefix is correct
             if (!temp.matches("^(2783).*")){
-                //System.out.println("Before check: " + (!temp.matches("^(2783).*")) + " " + i.getEnteredNumber());
                 i.setNumber(replaceFirst(temp));
                 i.setModified(true);
                 temp = i.getNumber();
-                //System.out.println("After check: " + (!temp.matches("^(2783).*")) + " " + i.getNumber());
             }
+            // check if the number has 11 digits
             if (temp.length() != 11) {
                 i.setCorrect(false);
                 i.setModified(false);
@@ -46,6 +48,9 @@ public class Validator {
         }
     }
 
+    /* attempt to correct incorrectly formed numbers
+     * add the prefix of the number if missing or incomplete
+     */
     public String replaceFirst (String str){
         StringBuilder sb;
         if (str.charAt(0) != '2') {

@@ -1,13 +1,16 @@
 package check.numbers;
 
+//this class represents a number and all the data related to it
 public class Number {
 
-    private String id;
-    private String number;
-    private String enteredNumber;
-    private boolean modified;
-    private boolean correct;
-    private String annotation;
+    private String id; // for future purpose, corresponds to the database id
+    private String number; // if modified is true, number represents the modified number
+    private String enteredNumber; // enteredNumber represents the number entered at the beginning
+    private boolean modified; // true if the number has been changed
+    private boolean correct; // true if the number is correct
+    private String annotation; // what has been modified
+
+    // I assume that each number is correct
 
     public Number (){
         this.id = "";
