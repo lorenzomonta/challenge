@@ -2,9 +2,9 @@
 
 > Technologies used:
 ```sh
-Java open source framework: Spring boot
+Java open-source framework: Spring boot
 Java html 5 template engine: Thymeleaf
-Object oriented programming languages: Java (JDK 15)
+Object-oriented programming languages: Java (JDK 15)
 Bootstrap 5.0 framework for wer applications
 ```
 
