@@ -16,13 +16,9 @@ The web application will show if the numbers are correct. In case they are incor
 * `Bootstrap 5.0`: Framework for wer applications;
 * `Unit Tests`: IntelliJ Unit Tests.
 
-## Running web application:
-```sh
-mvn install
-java -jar target/mywebserviceapp-0.0.1-SNAPSHOT.jar
-```
 
-Enter this url in your browser -> http://localhost:8080/
+Web application -> http://localhost:8080/
+
 
 > The file .csv must follow the format below:
 ```sh
