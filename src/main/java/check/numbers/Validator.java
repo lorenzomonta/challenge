@@ -26,7 +26,7 @@ public class Validator {
         }
     }
 
-    public void auxValidate(Number i){
+    private void auxValidate(Number i){
         String temp = i.getEnteredNumber();
         // check if the number contains only digits
         if (!temp.matches("[0-9]+")) {
@@ -51,7 +51,7 @@ public class Validator {
     /* attempt to correct incorrectly formed numbers
      * add the prefix of the number if missing or incomplete
      */
-    public String replaceFirst (String str){
+    private String replaceFirst (String str){
         StringBuilder sb;
         if (str.charAt(0) != '2') {
             str = '2' + str;
