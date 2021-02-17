@@ -1,11 +1,12 @@
 # This is the challenge of South African mobile numbers!
 
 > Technologies used:
-> Java open source framework: Spring boot
-> Java html 5 template engine: Thymeleaf
-> Object oriented programming languages: Java (JDK 15)
-> Bootstrap 5.0 framework for wer applications
-
+```sh
+Java open source framework: Spring boot
+Java html 5 template engine: Thymeleaf
+Object oriented programming languages: Java (JDK 15)
+Bootstrap 5.0 framework for wer applications
+```
 
 Web application -> http://localhost:8080/
 
