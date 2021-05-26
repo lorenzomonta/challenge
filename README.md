@@ -13,7 +13,7 @@ The web application will show if the numbers are correct. In case they are incor
 * `Spring boot`: Java open-source framework;
 * `Thymeleaf`: Java html 5 template engine;
 * `Java (JDK 15)`: Object-oriented programming language;
-* `Bootstrap 5.0`: Framework for wer applications;
+* `Bootstrap 5.0`: Framework for web applications;
 * `Unit Tests`: IntelliJ Unit Tests.
 
 
