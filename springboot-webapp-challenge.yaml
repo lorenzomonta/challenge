@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-challenge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-challenge
+  template:
+    metadata:
+      labels:
+        app: springboot-challenge
+    spec:
+      containers:
+      - name: webapp
+        image: lin.ocir.io/axeaw6q1uuco/my-container-registry/springboot-challenge:v1.0
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: ocirsecret
+
